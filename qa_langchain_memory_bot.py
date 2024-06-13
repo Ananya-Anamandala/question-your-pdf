@@ -7,11 +7,9 @@ from langchain.memory import ConversationBufferMemory
 from streamlit_chat import message
 from dotenv import load_dotenv
 import os
-
-# Load environment variables from .env file
 load_dotenv()
 
-# Constants
+
 system_message = "You are a helpful assistant."
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
@@ -71,7 +69,7 @@ if uploaded_pdf is not None:
             
             st.write(response)
 
-            # Display the conversation history
+            
             chat_history = conversation.memory.chat_memory.messages
             for i, entry in enumerate(chat_history, 1):  # Display all messages in history
                 if entry.type == 'system':
